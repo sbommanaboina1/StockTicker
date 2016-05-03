@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "StockTicker";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div ng-app="StockTickerApp" class="row">
+    <div ng-controller="StockTickerController">
+            <table class="table">
+                <tr>
+                    <th>Symbol</th>
+                    <th>Value</th>
+                    @*<th>LastUpdated [EDT]</th>*@
+                    <th>Change</th>
+                </tr>
+                <tr ng-repeat="r in stocks track by $index">
+                    <td>
+                        {{r.symbol}}
+                    </td>
+                    <td>
+                        {{r.value}}
+                    </td>
+                    @*<td>{{r.lastUpdatedDate}} {{r.lastUpdatedTime}} </td>*@
+                    <td>{{r.change}}</td>
+                </tr>
+            </table>
+
+        </div>
+        </div>
+        @section scripts{
+            <script src="~/Scripts/StockTicker/StockTicker.js"></script>
+        }
